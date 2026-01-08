@@ -4,7 +4,7 @@
 
 ---
 
-## 0) Bức tranh tổng quan (vì sao học buổi này)
+## Bức tranh tổng quan (vì sao học buổi này)
 - Làm dự án thật thì **không ai code một mình mãi** → phải biết cách lưu phiên bản + làm việc nhóm.
 - Git giúp:
   - Lưu lịch sử thay đổi
@@ -326,7 +326,7 @@ Gợi nhớ nhanh:
 
 ## 21) Toán tử toán học
 - `+`, `-`, `*`, `/`
-- Tránh chia cho 0 (dễ ra kết quả không như ý).
+- Tránh chia cho 0 (kết quả là Infinity= vô cực).
 
 ---
 
