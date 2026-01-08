@@ -1,0 +1,16 @@
+Local (chưa git) → git init → Working → git add → Staging → git commit → Repository (local) → git push → GitHub (remote)
+
+Tuần tự thực hiện:
+1. Local: tạo thư mục + tạo file (chưa có Git)
+
+2. git init → biến thư mục thành repo Git (file đang ở Working)
+
+3. git add . → đẩy file từ Working → Staging
+
+4. git commit -m "..." → chốt từ Staging → Repository (local)
+
+5. git remote add origin <url> → khai báo “đích” GitHub
+
+6. git branch -M main → đặt tên nhánh là main
+
+7. git push -u origin main → đẩy từ Repository (local) → GitHub (remote)
