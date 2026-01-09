@@ -70,20 +70,6 @@
 ![Ảnh](./git-3states-02.jpg)
 
 ---
-
-1. **Local VCS (cục bộ)**  
-   - Tự copy file: `backup1`, `backup2`…
-   - Nhược: dễ rối, mất máy là mất.
-
-2. **Centralized VCS (tập trung)**  
-   - Có server trung tâm (mọi người lấy về từ đó).
-   - Nhược: server/mạng có vấn đề là “kẹt”.
-
-3. **Distributed VCS (phân tán)**  
-   - Mỗi người có “bản repo đầy đủ” ở máy + có server.
-   - Ưu: an toàn hơn, linh hoạt hơn → **Git thuộc nhóm này**.
-
----
 1. **Working Directory**  
    - Nơi mình đang sửa file (bản nháp).
 
