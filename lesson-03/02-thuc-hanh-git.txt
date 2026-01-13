@@ -1,0 +1,260 @@
+LESSON-03/02-THUC-HANH-GIT.TXT
+(Thực hành với 1 folder demo)
+
+============================================================
+0) Chuẩn bị folder demo (không tính là lệnh Git)
+============================================================
+- Tạo folder tên: demo (tạo thủ công)
+- Mở folder demo bằng VS Code (tạo thủ công)
+
+Trạng thái ban đầu:
+- Working: (chưa có file)
+- Staging: (trống)
+- Repository: (chưa có)
+
+============================================================
+1) git init
+============================================================
+1) Cú pháp:
+- git init
+
+Ý nghĩa:
+- Khởi tạo Git repo trong folder demo (bắt đầu quản lý phiên bản)
+
+Thao tác:
+- Chạy: git init
+
+TRƯỚC:
+- Working: (có thể trống)
+- Staging: trống
+- Repository: chưa có
+
+SAU:
+- Working: (không đổi file)
+- Staging: trống
+- Repository: chưa có commit
+
+============================================================
+2) Tạo 3 file (tạo thủ công), rồi add/commit
+============================================================
+(Tạo thủ công trong demo)
+- Tạo 3 file: file1.txt, file2.txt, file3.txt
+
+TRẠNG THÁI sau khi tạo file (chưa git add):
+- Working: file1.txt, file2.txt, file3.txt (untracked)
+- Staging: trống
+- Repository: chưa có commit
+
+------------------------------------------------------------
+2.1) git add (chỉ add 2 file trước)
+------------------------------------------------------------
+Cú pháp:
+- git add <file>
+
+Thao tác:
+- git add file1.txt
+- git add file2.txt
+
+TRƯỚC:
+- Working: file1.txt, file2.txt, file3.txt (untracked)
+- Staging: trống
+- Repository: chưa có
+
+SAU:
+- Working: file3.txt (untracked)
+- Staging: file1.txt, file2.txt
+- Repository: chưa có
+
+------------------------------------------------------------
+2.2) git commit (tạo commit 1)
+------------------------------------------------------------
+Cú pháp:
+- git commit -m "message"
+
+Thao tác:
+- git commit -m "init: add file1 file2"
+
+Commit list:
+- C1: "init: add file1 file2"
+
+TRƯỚC:
+- Working: file3.txt (untracked)
+- Staging: file1.txt, file2.txt
+- Repository: chưa có
+
+SAU:
+- Working: file3.txt (untracked)
+- Staging: trống
+- Repository: C1 (chứa file1.txt, file2.txt)
+
+============================================================
+3) git commit --amend (gộp file3 vào commit gần nhất)
+============================================================
+Mục tiêu:
+- Lúc đầu quên add file3, giờ gộp file3 vào commit C1.
+
+3.1) git add file3.txt
+Thao tác:
+- git add file3.txt
+
+TRƯỚC:
+- Working: file3.txt (untracked)
+- Staging: trống
+- Repository: C1
+
+SAU:
+- Working: trống
+- Staging: file3.txt
+- Repository: C1
+
+3.2) git commit --amend
+Thao tác:
+- git commit --amend
+
+Commit list:
+- C1' (thay thế C1): message có thể giữ nguyên hoặc sửa trong editor
+  (hash đổi vì commit mới thay commit cũ)
+
+TRƯỚC:
+- Working: trống
+- Staging: file3.txt
+- Repository: C1
+
+SAU:
+- Working: trống
+- Staging: trống
+- Repository: C1' (chứa file1.txt, file2.txt, file3.txt)
+
+============================================================
+4) git commit --amend -m (sửa message commit gần nhất)
+============================================================
+Thao tác:
+- git commit --amend -m "init: add file1 file2 file3"
+
+Commit list:
+- C1'' (thay thế C1'): "init: add file1 file2 file3"
+
+TRƯỚC:
+- Working: trống
+- Staging: trống
+- Repository: C1'
+
+SAU:
+- Working: trống
+- Staging: trống
+- Repository: C1'' (message mới)
+
+============================================================
+5) git restore --staged <file> (lỡ add nhầm)
+============================================================
+(Tạo thủ công thêm 1 file để mô phỏng add nhầm)
+- Tạo thủ công: temp.txt
+
+TRẠNG THÁI ngay sau khi tạo temp.txt:
+- Working: temp.txt (untracked)
+- Staging: trống
+- Repository: C1''
+
+------------------------------------------------------------
+5.1) git add (lỡ add nhầm temp.txt)
+------------------------------------------------------------
+Thao tác:
+- git add temp.txt
+
+TRƯỚC:
+- Working: temp.txt (untracked)
+- Staging: trống
+- Repository: C1''
+
+SAU:
+- Working: trống
+- Staging: temp.txt
+- Repository: C1''
+
+------------------------------------------------------------
+5.2) git restore --staged temp.txt (bỏ staging)
+------------------------------------------------------------
+Thao tác:
+- git restore --staged temp.txt
+
+TRƯỚC:
+- Working: trống
+- Staging: temp.txt
+- Repository: C1''
+
+SAU:
+- Working: temp.txt (untracked vẫn còn)
+- Staging: trống
+- Repository: C1''
+
+============================================================
+6) git reset HEAD~1 (gỡ commit gần nhất)
+============================================================
+(Tạo thêm 1 commit để có cái mà reset)
+6.1) Tạo thay đổi (tạo thủ công)
+- Mở file1.txt và sửa nội dung (tạo thủ công)
+
+Trạng thái sau khi sửa:
+- Working: file1.txt (modified) + temp.txt (untracked)
+- Staging: trống
+- Repository: C1''
+
+6.2) git add file1.txt
+Thao tác:
+- git add file1.txt
+
+TRƯỚC:
+- Working: file1.txt (modified), temp.txt (untracked)
+- Staging: trống
+- Repository: C1''
+
+SAU:
+- Working: temp.txt (untracked)
+- Staging: file1.txt
+- Repository: C1''
+
+6.3) git commit -m (tạo commit 2)
+Thao tác:
+- git commit -m "feat: update file1"
+
+Commit list:
+- C1'': "init: add file1 file2 file3"
+- C2:   "feat: update file1"
+
+TRƯỚC:
+- Working: temp.txt (untracked)
+- Staging: file1.txt
+- Repository: C1''
+
+SAU:
+- Working: temp.txt (untracked)
+- Staging: trống
+- Repository: C1'', C2
+
+------------------------------------------------------------
+6.4) git reset HEAD~1 (undo C2 nhưng giữ thay đổi)
+------------------------------------------------------------
+Thao tác:
+- git reset HEAD~1
+
+Commit list (sau reset):
+- C1'': "init: add file1 file2 file3"
+- (C2 bị gỡ)
+
+TRƯỚC:
+- Working: temp.txt (untracked)
+- Staging: trống
+- Repository: C1'', C2
+
+SAU:
+- Working: file1.txt (modified lại quay về Working) + temp.txt (untracked)
+- Staging: trống
+- Repository: chỉ còn C1''
+
+============================================================
+KẾT LUẬN
+============================================================
+- git commit --amend: sửa commit gần nhất / gộp file vào commit gần nhất (hash đổi)
+- git commit --amend -m: sửa message nhanh cho commit gần nhất
+- git restore --staged <file>: unstage file, giữ thay đổi
+- git reset HEAD~1: gỡ commit gần nhất, giữ thay đổi ở Working
