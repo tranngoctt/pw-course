@@ -1,0 +1,77 @@
+I. Phải học – phải hiểu sâu (xương sống, đi làm bắt buộc)
+
+Mục tiêu: Em hiểu được 3 vùng Working / Staging / Repository và “vòng đời thay đổi”.
+
+Kiểm tra trạng thái & xem thay đổi
+
+git status
+
+git diff
+
+git diff --staged
+
+Đưa file vào Stage và tạo lịch sử
+
+git add <file>
+
+git add .
+
+git commit -m "message"
+
+Xem lịch sử và quay về đúng điểm
+
+git log (biết đọc commit)
+
+git restore <file> (bỏ sửa ở Working)
+
+git restore --staged <file> (đưa từ Staging về Working)
+
+git reset --hard <commit> (cực mạnh → dùng khi hiểu rõ)
+
+Làm việc với remote (GitHub)
+
+git remote -v
+
+git push
+
+git pull
+
+Branch (đi làm gần như ngày nào cũng dùng)
+
+git branch
+
+git switch -c <branch> (hoặc git checkout -b <branch>)
+
+git switch <branch> (hoặc git checkout <branch>)
+
+git merge <branch>
+
+✅ Nếu em nắm chắc nhóm I → đi làm ổn.
+
+II. Quan trọng (nên biết rõ, dùng thường xuyên nhưng không cần “đào sâu” như I)
+
+Giải quyết conflict khi merge/pull
+
+git pull (biết vì sao conflict)
+
+git merge
+
+(kỹ năng) đọc file conflict + chọn đúng phần
+
+Stash (cứu nguy khi đang làm dở)
+
+git stash
+
+git stash pop
+
+Sửa commit gần nhất / sửa message
+
+git commit --amend
+
+Cherry-pick (lấy đúng 1 commit từ branch khác)
+
+git cherry-pick <commit>
+
+Tag / release cơ bản
+
+git tag
