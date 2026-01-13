@@ -1,0 +1,131 @@
+LESSON-03/01-LYTHUYET-GIT.TXT
+
+============================================================
+1) git commit --amend
+============================================================
+
+Ý nghĩa cú pháp:
+- Sửa commit gần nhất (last commit).
+- Có thể:
+  + Sửa commit message
+  + Hoặc gộp thêm file đã quên add vào commit gần nhất
+- Lưu ý: amend tạo ra commit mới thay thế commit cũ (commit hash đổi).
+
+Áp dụng:
+- Khi  vừa commit xong nhưng:
+  + Gõ sai message
+  + Quên add một vài file vào commit vừa rồi
+
+Ví dụ:
+Tình huống:  đã commit rồi nhưng quên add file3.txt.
+
+TRƯỚC thay đổi (trước khi amend):
+- Working: file3.txt (untracked hoặc modified)
+- Staging: trống
+- Repository: C1 = "init: add file1 file2"
+
+Thao tác:
+- git add file3.txt (đưa file3 vào Staging)
+- git commit --amend (gộp vào commit gần nhất)
+
+SAU thay đổi (sau khi amend):
+- Working: trống
+- Staging: trống
+- Repository: C1' = "init: add file1 file2" (hoặc message mới) + gồm file1,file2,file3
+
+
+============================================================
+2) git commit --amend -m "<message>"
+============================================================
+
+
+Ý nghĩa cú pháp:
+- Sửa commit gần nhất và đặt luôn message mới (không mở editor).
+- Commit hash sẽ đổi (vì commit mới thay commit cũ).
+
+Áp dụng:
+- Khi  muốn sửa nhanh message của commit gần nhất.
+- Hoặc vừa gộp file xong và muốn đổi message chuẩn hơn.
+
+Ví dụ:
+Tình huống: Commit gần nhất message đang sai/không rõ.
+
+TRƯỚC thay đổi:
+- Working: trống
+- Staging: trống
+- Repository: C1 = "init project"
+
+Thao tác:
+- git commit --amend -m "init: add lesson-03 notes"
+
+SAU thay đổi:
+- Working: trống
+- Staging: trống
+- Repository: C1' = "init: add lesson-03 notes" (C1 bị thay thế)
+
+
+============================================================
+3) git restore --staged <file>
+============================================================
+3) Cú pháp:
+- git restore --staged <file>
+
+Ý nghĩa cú pháp:
+- Bỏ file ra khỏi Staging (Unstage).
+- Đưa file từ Staging về lại Working nhưng KHÔNG mất nội dung thay đổi.
+
+Áp dụng:
+- Khi  lỡ git add nhầm file vào Staging.
+- Muốn commit file A nhưng chưa muốn commit file B.
+
+Ví dụ:
+Tình huống: add nhầm temp.txt vào staging.
+
+TRƯỚC thay đổi:
+- Working: trống
+- Staging: file1.txt, temp.txt
+- Repository: C1 = "init: add files"
+
+Thao tác:
+- git restore --staged temp.txt
+
+SAU thay đổi:
+- Working: temp.txt (quay lại trạng thái untracked/modified ở Working)
+- Staging: file1.txt (vẫn staged)
+- Repository: C1 (không đổi)
+
+
+============================================================
+4) git reset HEAD~1
+============================================================
+
+Ý nghĩa cú pháp:
+- “Gỡ commit gần nhất” (quay về commit trước 1 bước).
+- Mặc định là dạng --mixed:
+  + Repository: lùi lại 1 commit
+  + Staging: bị bỏ staging (trống)
+  + Working: vẫn giữ các thay đổi (không mất code)
+
+Áp dụng:
+- Khi  commit nhầm (nhầm message, nhầm nội dung) và muốn làm lại commit.
+- Muốn bỏ commit nhưng vẫn giữ thay đổi để sửa/commit lại.
+
+Ví dụ:
+Tình huống:  vừa commit C2 nhưng muốn gỡ C2 ra.
+
+TRƯỚC thay đổi:
+- Working: trống
+- Staging: trống
+- Repository:
+  + C1 = "init: add files"
+  + C2 = "feat: update file1"  (commit gần nhất)
+
+Thao tác:
+- git reset HEAD~1
+
+SAU thay đổi:
+- Working: file1.txt (modified)  (các thay đổi của C2 quay về Working)
+- Staging: trống
+- Repository:
+  + C1 = "init: add files"
+  + (C2 bị gỡ khỏi lịch sử)
