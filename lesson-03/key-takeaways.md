@@ -230,11 +230,10 @@ console.log(result);
 >Lưu ý quan trọng về return:
  >>Gặp return là thoát khỏi function ngay, các dòng dưới sẽ không chạy nữa.
 
-### 6. Bài thực hành cuối buổi: getMax(a, b)
+### 6. Bài thực hành : getMax(a, b)
 
 Yêu cầu: nhận vào 2 số a, b và trả về số lớn hơn.
 
-Gợi ý theo lớp (dễ hiểu, đúng kiến thức đã học):
 ```
 function getMax(a, b) {
   if (a > b) {
