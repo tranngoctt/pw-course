@@ -141,3 +141,11 @@ git push
 1) Sau mỗi thao tác lớn (add/commit/reset/restore/branch) → chạy **`git status`**.  
 2) Sau mỗi thay đổi lịch sử (commit/amend/reset/merge) → chạy **`git log --oneline --decorate -5`**.  
 3) Luôn tự nói 1 câu: **“Mình đang ở vùng nào? Working/Staging/Repo/Remote?”**
+
+
+Bổ sung :
+cd /d/k101/pw-course                 # (đảm bảo đang đứng đúng repo)
+git fetch origin-ngoc                # (cập nhật dữ liệu mới nhất từ GitHub về local)
+git reset --hard origin-ngoc/main    # (ép nhánh local main = y hệt nhánh main trên GitHub)
+git clean -fd                        # (xóa sạch file/thư mục untracked để match hoàn toàn)
+
