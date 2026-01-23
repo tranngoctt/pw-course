@@ -1,9 +1,0 @@
-Giải thích 4 câu lệnh 
-
-1) git init → tạo repo Git local trong thư mục (bắt đầu được quản lý phiên bản).
-
-2) git add . → đưa tất cả file từ Working → Staging (chuẩn bị commit).
-
-3) git commit -m "..." → chốt 1 “mốc lưu” từ Staging → Local Repository.
-
-4) git push -u origin main → đẩy commit lên GitHub (remote); -u để lần sau chỉ cần git push.
