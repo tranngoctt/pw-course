@@ -1,6 +1,22 @@
 # JavaScript — Array Utils Functions (map / filter / find / reduce / some / every / sort / push / pop / shift / unshift)
 
 
+## 0) Cheat Sheet
+
+1. `arr.map((item, index, arr) => newItem)` : biến đổi từng phần tử → **mảng mới** (cùng độ dài)
+2. `arr.filter((item, index, arr) => condition)` : lọc theo điều kiện → **mảng mới** (có thể ngắn hơn)
+3. `arr.find((item, index, arr) => condition)` : tìm phần tử đầu tiên đúng điều kiện → **phần tử / undefined** (dừng sớm)
+4. `arr.reduce((acc, cur, index, arr) => newAcc, initialValue)` : gom cả mảng → **1 giá trị** (sum/object/string…)
+5. `arr.some((item, index, arr) => condition)` : có **ít nhất 1** phần tử đúng? → **true/false** (dừng sớm)
+6. `arr.every((item, index, arr) => condition)` : **tất cả** phần tử đều đúng? → **true/false** (dừng sớm)
+7. `arr.sort((a, b) => a - b)` : sắp xếp tăng dần (số) → ⚠️ **đổi mảng gốc**
+8. `arr.sort((a, b) => b - a)` : sắp xếp giảm dần (số) → ⚠️ **đổi mảng gốc**
+9. `arr.push(value)` : thêm **cuối** → ⚠️ **đổi mảng gốc** (trả về **length mới**)
+10. `arr.pop()` : xóa **cuối** → ⚠️ **đổi mảng gốc** (trả về **phần tử bị xóa**)
+11. `arr.unshift(value)` : thêm **đầu** → ⚠️ **đổi mảng gốc** (trả về **length mới**)
+12. `arr.shift()` : xóa **đầu** → ⚠️ **đổi mảng gốc** (trả về **phần tử bị xóa**)
+
+
 ## 1) `map()` — Biến đổi mảng (1 phần tử → 1 phần tử mới)
 
 ### Ý nghĩa
@@ -359,13 +375,3 @@ console.log(fruits); // ["apple","grape","banana","orange"]
 
 ---
 
-## 12) Cheat Sheet
-
-- `map()`   : biến đổi → **mảng mới** (cùng độ dài)
-- `filter()`: lọc      → **mảng mới** (có thể ngắn hơn)
-- `find()`  : tìm 1 cái → **phần tử / undefined** (dừng sớm)
-- `reduce()`: gom      → **1 giá trị** (sum/obj/string…)
-- `some()`  : có ít nhất 1? → **true/false** (dừng sớm)
-- `every()` : tất cả đều đúng? → **true/false** (dừng sớm)
-- `sort()`  : sắp xếp → ⚠️ **đổi mảng gốc**, số cần compare
-- `push/pop/shift/unshift`: thêm/xóa đầu-cuối → ⚠️ **đổi mảng gốc**
