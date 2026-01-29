@@ -1,12 +1,5 @@
 # JavaScript — Array Utils Functions (map / filter / find / reduce / some / every / sort / push / pop / shift / unshift)
 
-> Nguồn nội dung: transcript video “JavaScript Array utils function”.  
-> Lưu ý sửa tên hàm đúng chuẩn JS (trong transcript có chỗ đọc/ghi nhầm):
-> - `file` → `find`
-> - `short` → `sort`
-> - `xăm` → `some`
-
----
 
 ## 1) `map()` — Biến đổi mảng (1 phần tử → 1 phần tử mới)
 
